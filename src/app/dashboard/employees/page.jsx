@@ -1,0 +1,8 @@
+import { Users } from "lucide-react";
+import { createClient } from "@/lib/supabase/server";
+import { AddEmployeeForm } from "@/components/employees/add-employee-form";
+import { ImportEmployees } from "@/components/employees/import-employees";
+import { EmployeeTable } from "@/components/employees/employee-table";
+
+export default async function EmployeesPage() { const supabase = await createClient(); const { data: { user } } = await supabase.auth.getUser(); const { data: profile } = user ? await supabase.from("users").select("organization_id").eq("id", user.id).single() : { data: null }; const { data } = profile ? await supabase.from("employees").select("id, first_name, last_name, employee_id, department, position, email, birthday_month, birthday_day, active").eq("organization_id", profile.organization_id).order("first_name") : { data: [] }; const employees = data || [];
+  return <main className="min-h-screen p-5 md:p-8"><header className="mx-auto max-w-7xl"><p className="text-sm font-medium text-[#6B5CE7]">People directory</p><div className="mt-1 flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><h1 className="text-3xl font-bold tracking-tight">Employees</h1><p className="mt-1 text-slate-500">Manage the people who make your organization special.</p></div><div className="flex gap-3"><ImportEmployees/><AddEmployeeForm/></div></div></header><section className="mx-auto mt-8 max-w-7xl"><div className="mb-4 flex items-center gap-2 text-sm text-slate-500"><Users size={17}/><span>{employees.length} total employees</span></div><EmployeeTable employees={employees}/></section></main>; }
