@@ -1,0 +1,51 @@
+// Static placeholder employees for the Employees prototype page.
+export const employees = [
+  {
+    id: 1,
+    name: 'Daniel Victor',
+    jobTitle: 'Brand Manager',
+    department: 'Marketing',
+    dob: '1990-08-18',
+    isActive: true,
+  },
+  {
+    id: 2,
+    name: 'Opeyemi Olaniran',
+    jobTitle: 'Senior Developer',
+    department: 'Engineering',
+    dob: '1992-08-19',
+    isActive: true,
+  },
+  {
+    id: 3,
+    name: 'Michael Adeyemi',
+    jobTitle: 'Financial Analyst',
+    department: 'Finance',
+    dob: '1988-09-02',
+    isActive: true,
+  },
+  {
+    id: 4,
+    name: 'Aisha Bello',
+    jobTitle: 'Operations Lead',
+    department: 'Operations',
+    dob: '1995-09-11',
+    isActive: true,
+  },
+  {
+    id: 5,
+    name: 'Ngozi Adebayo',
+    jobTitle: 'HR Specialist',
+    department: 'Human Resources',
+    dob: '1991-09-18',
+    isActive: true,
+  },
+  {
+    id: 6,
+    name: 'Tunde Bakare',
+    jobTitle: 'Sales Executive',
+    department: 'Sales',
+    dob: '1989-10-04',
+    isActive: false,
+  },
+]
